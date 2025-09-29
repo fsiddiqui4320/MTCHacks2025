@@ -15,6 +15,8 @@ export type GrainyGradientBackgroundProps = {
   grain?: number;
   /** Grain scale multiplier. */
   grainScale?: number;
+  /** Blur radius in CSS pixels applied before grain overlay. */
+  blur?: number;
   /** Render step in CSS pixels; larger = faster, blockier. */
   resolution?: number;
   /** Cap frames per second. Leave undefined for uncapped RAF. */
@@ -240,18 +242,19 @@ function makePalette(colors: string[]): (t: number) => RGB {
 }
 
 export default function GrainyGradientBackground({
-  colors = ["#000000", "#1a1a1a", "#333333", "#4d4d4d"],
+  colors = ["#141414", "#141313", "#1c1c1c", "#4f4f4f"],
   amplitude = 60,
-  scale = 220,
+  scale = 420,
   speed = 0.16,
-  grain = 0.12,
-  grainScale = 2.0,
-  resolution = 2,
+  grain = 0.9,
+  grainScale = 1.0,
+  resolution = 5,
   fpsCap,
   fullscreen = true,
   opacity = 1,
   className,
   style,
+  blur = 90,
 }: GrainyGradientBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -290,6 +293,9 @@ export default function GrainyGradientBackground({
     let renderW = 0;
     let renderH = 0;
     let stepPx = 1;
+    // Dedicated offscreen canvas for grain overlay to avoid clipping when resolution > 1
+    let grainCanvas: HTMLCanvasElement | null = null;
+    let grainCtx: CanvasRenderingContext2D | null = null;
 
     function resize() {
       const parent = c.parentElement || document.body;
@@ -384,7 +390,60 @@ export default function GrainyGradientBackground({
       }
       bufferCtx.putImageData(bufferImage, 0, 0);
       context.clearRect(0, 0, w, h);
+      // Apply blur when drawing the color field upsampled
+      const prevFilter = (
+        context as CanvasRenderingContext2D & { filter?: string }
+      ).filter;
+      context.filter = blur > 0 ? `blur(${blur}px)` : "none";
       context.drawImage(bufferCanvas, 0, 0, renderW, renderH, 0, 0, w, h);
+      context.filter = prevFilter || "none";
+
+      // Grain overlay: single-channel procedural noise blended on top
+      if (grain > 0) {
+        const grainScalePx = Math.max(1, Math.floor((grainScale || 1) * 2));
+        const gw = Math.ceil(w / grainScalePx);
+        const gh = Math.ceil(h / grainScalePx);
+
+        // Ensure grain offscreen canvas exists and matches size
+        if (
+          !grainCanvas ||
+          !grainCtx ||
+          grainCanvas.width !== gw ||
+          grainCanvas.height !== gh
+        ) {
+          grainCanvas = document.createElement("canvas");
+          grainCanvas.width = gw;
+          grainCanvas.height = gh;
+          grainCtx = grainCanvas.getContext("2d", { willReadFrequently: true });
+        }
+
+        if (grainCtx && grainCanvas) {
+          const gImg = grainCtx.createImageData(gw, gh);
+          const gData = gImg.data;
+          let p = 0;
+          const tNoise = time * 0.0008; // slow evolving grain
+          for (let yy = 0; yy < gh; yy++) {
+            for (let xx = 0; xx < gw; xx++) {
+              const vx = xx * 0.9;
+              const vy = yy * 0.9;
+              const n = noise.noise3(vx, vy, tNoise); // [-1,1]
+              const v = Math.floor(128 + 127 * n);
+              const a = Math.floor(
+                255 * Math.min(1, Math.max(0, grain)) * 0.35
+              );
+              gData[p++] = v;
+              gData[p++] = v;
+              gData[p++] = v;
+              gData[p++] = a;
+            }
+          }
+          grainCtx.putImageData(gImg, 0, 0);
+          context.imageSmoothingEnabled = true;
+          context.globalCompositeOperation = "overlay";
+          context.drawImage(grainCanvas, 0, 0, gw, gh, 0, 0, w, h);
+          context.globalCompositeOperation = "source-over";
+        }
+      }
 
       raf = requestAnimationFrame(renderFrame);
     }
@@ -410,6 +469,7 @@ export default function GrainyGradientBackground({
     paletteLUT,
     fullscreen,
     noise,
+    blur,
   ]);
 
   const canvasStyle: React.CSSProperties = useMemo(() => {
