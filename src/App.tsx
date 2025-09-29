@@ -1,20 +1,20 @@
 import "./App.css";
 import GrainyGradientBackground from "./GrainyGradientBackground";
-import MainTitle from "./MainTitle";
-import mtchackslogo from "./assets/mtchackslogo.png";
+import ScreenOne from "./screens/ScreenOne";
+import ScreenTwo from "./screens/ScreenTwo";
+import ScreenThree from "./screens/ScreenThree";
+import { useViewport } from "./hooks/useViewport";
 
 function App() {
+  // read viewport to trigger rerenders on size changes
+  useViewport();
   return (
     <>
-      <div>
-        <GrainyGradientBackground />
-        <MainTitle
-          src={mtchackslogo}
-          x={window.innerWidth / 2 - window.innerWidth / 8}
-          y={window.innerHeight / 2 - window.innerWidth / 16}
-          alt="mtc hacks logo"
-          width={window.innerWidth / 4}
-        />
+      <GrainyGradientBackground />
+      <div className="snap-container">
+        <ScreenOne />
+        <ScreenTwo />
+        <ScreenThree />
       </div>
     </>
   );

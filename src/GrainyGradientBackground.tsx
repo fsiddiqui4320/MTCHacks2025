@@ -248,13 +248,13 @@ export default function GrainyGradientBackground({
   speed = 0.16,
   grain = 0.9,
   grainScale = 1.0,
-  resolution = 5,
+  resolution = 8,
   fpsCap,
   fullscreen = true,
   opacity = 1,
   className,
   style,
-  blur = 90,
+  blur = 130,
 }: GrainyGradientBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
