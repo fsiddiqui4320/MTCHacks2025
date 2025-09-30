@@ -244,8 +244,8 @@ function makePalette(colors: string[]): (t: number) => RGB {
 export default function GrainyGradientBackground({
   colors = ["#141414", "#141313", "#1c1c1c", "#4f4f4f"],
   amplitude = 60,
-  scale = 420,
-  speed = 0.16,
+  scale = 820,
+  speed = 0.08,
   grain = 0.9,
   grainScale = 1.0,
   resolution = 8,
@@ -254,7 +254,7 @@ export default function GrainyGradientBackground({
   opacity = 1,
   className,
   style,
-  blur = 130,
+  blur = 400,
 }: GrainyGradientBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
