@@ -11,7 +11,6 @@ export default function ScreenTwo() {
             creativity dedicated to solving challenges faced by the modern
             Ummah.
             <br />
-            <br />
             Compete in one of our three tracks (two technical and one pitch
             competition) for a chance to win $2000. Whether you come solo or
             with a team, all are welcome!
