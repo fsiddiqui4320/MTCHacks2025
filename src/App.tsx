@@ -7,12 +7,13 @@ import ScreenThree from "./screens/ScreenThree";
 import ScreenFour from "./screens/ScreenFour";
 import ScreenFive from "./screens/ScreenFive";
 import { useViewport } from "./hooks/useViewport";
-
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   // read viewport to trigger rerenders on size changes
   useViewport();
   return (
     <>
+      <Analytics />
       <Navbar />
       <GrainyGradientBackground />
       <div className="snap-container">
