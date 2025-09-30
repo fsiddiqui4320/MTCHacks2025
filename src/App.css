@@ -1,3 +1,31 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("./assets/STIXTwoText.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
 #root {
   max-width: none;
   width: 100vw;
@@ -53,6 +81,34 @@
   scroll-behavior: smooth;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
+  z-index: 4000;
+  pointer-events: none;
+}
+
+.navbar-link {
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  text-decoration: none;
+  pointer-events: auto;
+
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover,
+.navbar-link:focus {
+  color: rgba(255, 255, 255, 1);
+}
+
 .screen {
   position: relative;
   min-height: 100vh;
@@ -62,6 +118,10 @@
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
+}
+
+.screen h1 {
+  font-family: "STIX Two Text", serif;
 }
 
 .screen-content {

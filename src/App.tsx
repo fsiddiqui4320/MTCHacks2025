@@ -1,5 +1,6 @@
 import "./App.css";
-import GrainyGradientBackground from "./GrainyGradientBackground";
+import GrainyGradientBackground from "./components/GrainyGradientBackground";
+import Navbar from "./components/Navbar";
 import ScreenOne from "./screens/ScreenOne";
 import ScreenTwo from "./screens/ScreenTwo";
 import ScreenThree from "./screens/ScreenThree";
@@ -10,6 +11,7 @@ function App() {
   useViewport();
   return (
     <>
+      <Navbar />
       <GrainyGradientBackground />
       <div className="snap-container">
         <ScreenOne />

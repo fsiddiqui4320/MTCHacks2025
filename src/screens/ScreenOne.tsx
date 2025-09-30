@@ -36,7 +36,7 @@ export default function ScreenOne() {
   }, []);
 
   return (
-    <section className="screen">
+    <section id="page1" className="screen">
       <MainTitle
         src={mtchackslogo}
         x={centerX}
