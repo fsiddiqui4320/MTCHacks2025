@@ -245,7 +245,7 @@ export default function GrainyGradientBackground({
   colors = ["#141414", "#141313", "#1c1c1c", "#4f4f4f"],
   amplitude = 60,
   scale = 820,
-  speed = 0.08,
+  speed = 0.18,
   grain = 0.9,
   grainScale = 1.0,
   resolution = 8,
