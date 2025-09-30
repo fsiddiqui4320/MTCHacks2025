@@ -5,6 +5,7 @@ import ScreenOne from "./screens/ScreenOne";
 import ScreenTwo from "./screens/ScreenTwo";
 import ScreenThree from "./screens/ScreenThree";
 import ScreenFour from "./screens/ScreenFour";
+import ScreenFive from "./screens/ScreenFive";
 import { useViewport } from "./hooks/useViewport";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <ScreenTwo />
         <ScreenThree />
         <ScreenFour />
+        <ScreenFive />
       </div>
       <div className="follow-links">
         <a

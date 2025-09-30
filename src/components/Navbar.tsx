@@ -11,6 +11,7 @@ const sectionLinks: SectionLink[] = [
   { id: "page2", label: "About" },
   { id: "page3", label: "Apply" },
   { id: "page4", label: "FAQ" },
+  { id: "page5", label: "Sponsors" },
 ];
 
 export default function Navbar() {
