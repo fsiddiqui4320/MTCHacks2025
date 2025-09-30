@@ -254,7 +254,7 @@ export default function GrainyGradientBackground({
   opacity = 1,
   className,
   style,
-  blur = 400,
+  blur = 120,
 }: GrainyGradientBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
