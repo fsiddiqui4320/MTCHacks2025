@@ -45,7 +45,7 @@ export default function ScreenFour() {
 
   const handleToggle = (index: number) => {
     if (!isMobile) return;
-    setExpandedIndex(index);
+    setExpandedIndex((current) => (current === index ? -1 : index));
   };
 
   return (
@@ -76,11 +76,13 @@ export default function ScreenFour() {
                       {isOpen ? "-" : "+"}
                     </span>
                   </button>
-                  {isOpen && (
-                    <p id={`faq-answer-${index}`} className="faq-answer">
-                      {answer}
-                    </p>
-                  )}
+                  <p
+                    id={`faq-answer-${index}`}
+                    className="faq-answer"
+                    aria-hidden={!isOpen}
+                  >
+                    {answer}
+                  </p>
                 </article>
               );
             }

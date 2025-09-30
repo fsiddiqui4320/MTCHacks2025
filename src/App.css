@@ -198,9 +198,21 @@ body {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
+.faq-item h2 {
+  margin: 0 0 0.75rem;
+  font-family: "STIX Two Text", serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.faq-item p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .faq-question {
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -211,6 +223,7 @@ body {
   font: inherit;
   text-align: left;
   cursor: pointer;
+  display: none;
 }
 
 .faq-indicator {
@@ -221,19 +234,6 @@ body {
 
 .faq-answer {
   margin: 0.75rem 0 0;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.faq-item h2 {
-  margin: 0 0 0.75rem;
-  font-family: "STIX Two Text", serif;
-  font-size: 1.2rem;
-  color: #ffffff;
-}
-
-.faq-item p {
-  margin: 0;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -249,6 +249,7 @@ body {
 
   .faq-item {
     padding: 1.25rem;
+    transition: background 0.2s ease;
   }
 
   .faq-item h2,
@@ -266,6 +267,11 @@ body {
 
   .faq-item--mobile .faq-answer {
     display: none;
+    margin-top: 0.75rem;
+  }
+
+  .faq-item--mobile.faq-item--open {
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .faq-item--mobile.faq-item--open .faq-answer {
