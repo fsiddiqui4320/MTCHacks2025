@@ -10,6 +10,7 @@ const NAV_HEIGHT = 72;
 const sectionLinks: SectionLink[] = [
   { id: "page2", label: "About" },
   { id: "page3", label: "Apply" },
+  { id: "page4", label: "FAQ" },
 ];
 
 export default function Navbar() {

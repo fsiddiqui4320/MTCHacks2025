@@ -5,12 +5,10 @@ import { useViewport } from "../hooks/useViewport";
 import { ChevronDown } from "lucide-react";
 
 export default function ScreenOne() {
-  const { width, height } = useViewport();
+  const { width } = useViewport();
   const [showArrow, setShowArrow] = useState(true);
   const isMobile = width <= 768;
   const logoWidth = isMobile ? width / 2 : width / 4;
-  const centerX = width / 2 - logoWidth / 2;
-  const centerY = height / 2 - logoWidth / 4;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,13 +35,9 @@ export default function ScreenOne() {
 
   return (
     <section id="page1" className="screen">
-      <MainTitle
-        src={mtchackslogo}
-        x={centerX}
-        y={centerY}
-        alt="mtc hacks logo"
-        width={logoWidth}
-      />
+      <div className="main-title-wrapper">
+        <MainTitle src={mtchackslogo} alt="mtc hacks logo" width={logoWidth} />
+      </div>
       {showArrow && (
         <div className="scroll-indicator">
           <ChevronDown size={32} />
