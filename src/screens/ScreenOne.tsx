@@ -7,8 +7,10 @@ import { ChevronDown } from "lucide-react";
 export default function ScreenOne() {
   const { width, height } = useViewport();
   const [showArrow, setShowArrow] = useState(true);
-  const centerX = width / 2 - width / 8;
-  const centerY = height / 2 - width / 16;
+  const isMobile = width <= 768;
+  const logoWidth = isMobile ? width / 2 : width / 4;
+  const centerX = width / 2 - logoWidth / 2;
+  const centerY = height / 2 - logoWidth / 4;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +42,7 @@ export default function ScreenOne() {
         x={centerX}
         y={centerY}
         alt="mtc hacks logo"
-        width={width / 4}
+        width={logoWidth}
       />
       {showArrow && (
         <div className="scroll-indicator">

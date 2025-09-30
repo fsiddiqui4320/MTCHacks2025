@@ -16,6 +16,24 @@ function App() {
         <ScreenTwo />
         <ScreenThree />
       </div>
+      <div className="follow-links">
+        <a
+          href="https://www.instagram.com/mtcuiuc/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="follow-link"
+        >
+          follow us
+        </a>
+        <a
+          href="https://github.com/yaseenhalabi/MTCHacks2025"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="follow-link"
+        >
+          github
+        </a>
+      </div>
     </>
   );
 }
