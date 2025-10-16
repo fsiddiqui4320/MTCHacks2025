@@ -78,7 +78,14 @@ body {
   width: 100vw;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scroll only for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .snap-container {
+    scroll-behavior: smooth;
+  }
 }
 
 .navbar {
@@ -111,14 +118,15 @@ body {
 
 .screen {
   position: relative;
-  min-height: 100vh;
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   box-sizing: border-box;
+  border: solid 1px white;
 }
 
 .screen > * {
@@ -276,16 +284,13 @@ body {
 }
 
 @media (max-width: 768px) {
-  .screen {
-    padding: 3rem 0;
-  }
-
   .screen h1 {
     font-size: 1.9rem;
   }
 
   .screen-content {
     max-width: 88vw;
+    padding: 1.5rem 0;
   }
 
   .about-content {
@@ -298,7 +303,7 @@ body {
   }
 
   .about-image {
-    width: min(220px, 60vw);
+    width: min(180px, 50vw);
   }
 
   .apply-deadline {
@@ -370,12 +375,12 @@ body {
 }
 
 @media (max-width: 600px) {
-  .screen {
-    padding: 2.5rem 0;
-  }
-
   .screen h1 {
     font-size: 1.65rem;
+  }
+
+  .screen-content {
+    padding: 1rem 0;
   }
 
   .about-content {
@@ -388,7 +393,7 @@ body {
   }
 
   .about-image {
-    width: min(180px, 50vw);
+    width: min(150px, 40vw);
   }
 
   .apply-button {
@@ -465,7 +470,7 @@ body {
   }
 
   .about-image {
-    width: min(320px, 70vw);
+    width: min(320px, 60vw);
   }
 }
 
