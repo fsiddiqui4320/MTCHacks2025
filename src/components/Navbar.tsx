@@ -8,10 +8,11 @@ type SectionLink = {
 const NAV_HEIGHT = 72;
 
 const sectionLinks: SectionLink[] = [
-  { id: "page2", label: "About" },
-  { id: "page3", label: "Apply" },
-  { id: "page4", label: "FAQ" },
-  { id: "page5", label: "Sponsors" },
+  { id: "page2", label: "Schedule" },
+  { id: "page3", label: "About" },
+  { id: "page4", label: "Apply" },
+  { id: "page5", label: "FAQ" },
+  { id: "page6", label: "Sponsors" },
 ];
 
 export default function Navbar() {

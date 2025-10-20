@@ -2,7 +2,7 @@ import uiucPic from "../assets/uiuc pic.png";
 
 export default function ScreenTwo() {
   return (
-    <section id="page2" className="screen">
+    <section id="page3" className="screen">
       <div className="screen-content about-content">
         <div className="about-text">
           <h1>About</h1>
@@ -18,7 +18,7 @@ export default function ScreenTwo() {
               </>
             )}
             Compete in one of our three tracks (two technical and one pitch
-            competition) for a chance to win $2000! Feel free to come solo or
+            competition) for a chance to win $2000!. Feel free to come solo or
             with a team, all are welcome.
           </p>
         </div>
