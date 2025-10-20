@@ -79,14 +79,6 @@ export const scheduleData: {
         location: "CIF 4031",
       },
       {
-        title: "Mentor Office Hours",
-        date: "Saturday",
-        startTime: "12:00 PM",
-        endTime: "3:00 PM",
-        icon: "message-circle",
-        location: "CIF 4031",
-      },
-      {
         title: "Dhuhr prayer",
         date: "Saturday",
         startTime: "1:00 PM",

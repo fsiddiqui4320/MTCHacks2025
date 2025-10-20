@@ -21,7 +21,7 @@ const faqs = [
     answer: "A demo, prototype, or pitch submitted by Sunday.",
   },
   {
-    question: "I'm coming from out of town.",
+    question: "I'm coming from out of town and need a place to stay.",
     answer:
       "Check out these accommodations: IHotel, TownePlace Suites (Champaign), Holiday Inn Champaign",
   },
