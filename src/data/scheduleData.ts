@@ -18,9 +18,17 @@ export const scheduleData: {
     title: "Friday",
     items: [
       {
-        title: "Opening Ceremony",
+        title: "Check-in + Dinner/snacks",
         date: "Friday",
         startTime: "6:00 PM",
+        endTime: "6:30 PM",
+        icon: "utensils",
+        location: "CIF 4031",
+      },
+      {
+        title: "Opening Ceremony",
+        date: "Friday",
+        startTime: "6:30 PM",
         endTime: "7:00 PM",
         icon: "flag",
         location: "CIF 4031",
