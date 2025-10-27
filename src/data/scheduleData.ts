@@ -18,25 +18,17 @@ export const scheduleData: {
     title: "Friday",
     items: [
       {
-        title: "Check-in + Dinner/snacks",
+        title: "Opening Ceremony",
         date: "Friday",
         startTime: "6:00 PM",
         endTime: "7:00 PM",
-        icon: "utensils",
-        location: "CIF 4031",
-      },
-      {
-        title: "Opening Ceremony",
-        date: "Friday",
-        startTime: "7:00 PM",
-        endTime: "7:30 PM",
         icon: "flag",
         location: "CIF 4031",
       },
       {
         title: "Team Formation Activity",
         date: "Friday",
-        startTime: "7:30 PM",
+        startTime: "7:00 PM",
         endTime: "8:00 PM",
         icon: "users",
         location: "CIF 4031",
