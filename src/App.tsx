@@ -7,6 +7,7 @@ import ScreenThree from "./screens/ScreenThree";
 import ScreenFour from "./screens/ScreenFour";
 import ScreenFive from "./screens/ScreenFive";
 import ScreenSix from "./screens/ScreenSix";
+import ScreenSeven from "./screens/ScreenSeven";
 import { useViewport } from "./hooks/useViewport";
 import { Analytics } from "@vercel/analytics/react";
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <ScreenOne />
         <ScreenTwo />
         <ScreenThree />
+        <ScreenSeven />
         <ScreenFour />
         <ScreenFive />
         <ScreenSix />
